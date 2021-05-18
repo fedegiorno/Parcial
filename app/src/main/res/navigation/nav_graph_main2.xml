@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Desarrollo de Aplicaciones para Dispositivos Moviles
+PRIMER PARCIAL
+Temas: BottomNavigationBars, NavigationDrawer, Tabs, Preferences y Splash
+
+nav_graph_main2.xml
+Ubicacion: res.navigation
+
+-->
+
+<navigation
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/nav_graph_main2"
+    app:startDestination="@id/listCursosFragment">
+
+    <fragment
+        android:id="@+id/listCursosFragment"
+        android:name="com.fedegiorno.primerparcial.fragments.ListCursosFragment"
+        android:label="fragment_list_cursos"
+        tools:layout="@layout/fragment_list_cursos" >
+        <action
+            android:id="@+id/action_listCursosFragment_to_infoCIIEActivity"
+            app:destination="@id/infoCIIEActivity" />
+        <action
+            android:id="@+id/action_listCursosFragment_to_containerFragment"
+            app:destination="@id/containerFragment" />
+        <action
+            android:id="@+id/action_listCursosFragment_to_settingsActivity"
+            app:destination="@id/settingsActivity" />
+    </fragment>
+
+    <activity
+        android:id="@+id/infoCIIEActivity"
+        android:name="com.fedegiorno.primerparcial.activities.InfoCIIEActivity"
+        android:label="activity_infociie"
+        tools:layout="@layout/activity_infociie" />
+    <fragment
+        android:id="@+id/containerFragment"
+        android:name="com.fedegiorno.primerparcial.fragments.ContainerFragment"
+        android:label="fragment_container"
+        tools:layout="@layout/fragment_container" >
+        <argument
+            android:name="name"
+            app:argType="string" />
+        <argument
+            android:name="descripcion"
+            app:argType="string" />
+        <argument
+            android:name="capacitador"
+            app:argType="string" />
+        <argument
+            android:name="puntaje"
+            app:argType="string" />
+        <argument
+            android:name="inicio"
+            app:argType="string" />
+        <argument
+            android:name="fin"
+            app:argType="string" />
+        <argument
+            android:name="horario"
+            app:argType="string" />
+        <argument
+            android:name="carga"
+            app:argType="string" />
+        <argument
+            android:name="nivel"
+            app:argType="string" />
+        <argument
+            android:name="requisitos"
+            app:argType="string" />
+    </fragment>
+    <fragment
+        android:id="@+id/detailFragment1"
+        android:name="com.fedegiorno.primerparcial.fragments.DetailFragment1"
+        android:label="fragment_detail1"
+        tools:layout="@layout/fragment_detail1" />
+    <fragment
+        android:id="@+id/detailFragment2"
+        android:name="com.fedegiorno.primerparcial.fragments.DetailFragment2"
+        android:label="fragment_detail2"
+        tools:layout="@layout/fragment_detail2" />
+    <fragment
+        android:id="@+id/detailFragment3"
+        android:name="com.fedegiorno.primerparcial.fragments.DetailFragment3"
+        android:label="fragment_detail3"
+        tools:layout="@layout/fragment_detail3" />
+    <activity
+        android:id="@+id/settingsActivity"
+        android:name="com.fedegiorno.primerparcial.activities.SettingsActivity"
+        android:label="SettingsActivity" />
+
+</navigation>

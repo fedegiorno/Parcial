@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+Desarrollo de Aplicaciones para Dispositivos Moviles
+PRIMER PARCIAL
+Temas: BottomNavigationBars, NavigationDrawer, Tabs, Preferences y Splash
+
+fragment_register.xml
+Ubicacion: res.layout
+
+-->
+
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/cnlRegister"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="com.fedegiorno.primerparcial.fragments.RegisterFragment">
+
+    <androidx.constraintlayout.widget.Guideline
+        android:id="@+id/guideline2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.35" />
+
+    <EditText
+        android:id="@+id/etxApellido"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:ems="10"
+        android:hint="Ingrese apellido de usuario"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/guideline2" />
+
+    <EditText
+        android:id="@+id/etxNombres"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Ingrese nombres de usuario"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxApellido" />
+
+    <EditText
+        android:id="@+id/etxUsuario"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Ingrese nombres de usuario"
+        android:inputType="textPersonName"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxNombres" />
+
+    <EditText
+        android:id="@+id/etxNumeroDNI"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="Introduzca Nro DNI"
+        android:inputType="number"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.496"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxUsuario" />
+
+    <EditText
+        android:id="@+id/etxEmail"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="20dp"
+        android:ems="10"
+        android:hint="email"
+        android:inputType="textEmailAddress"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxNumeroDNI" />
+
+    <EditText
+        android:id="@+id/etxClave"
+        android:layout_width="250dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="30dp"
+        android:ems="10"
+        android:hint="Ingrese Clave"
+        android:inputType="textPassword"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.503"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxEmail" />
+
+    <Button
+        android:id="@+id/btnRegistro"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:text="Registrar"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/etxClave" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

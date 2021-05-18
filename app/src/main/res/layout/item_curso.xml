@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/carCurso"
+    android:layout_marginHorizontal="5dp"
+    android:layout_marginTop="5dp"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    app:cardBackgroundColor="#090909"
+    app:cardCornerRadius="20dp"
+    app:cardElevation="10dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/cnlCurso"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#009688"
+        android:translationY="10dp">
+
+        <ImageView
+            android:id="@+id/imgCurso"
+            android:contentDescription="Pizarra"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtCurso"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Curso"
+            android:textAlignment="textEnd"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/txtProfe"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginEnd="8dp"
+            android:text="Profesor"
+            android:textAlignment="textEnd"
+            android:textColor="#000000"
+            android:textSize="24sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txtCurso" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
