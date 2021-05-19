@@ -26,7 +26,7 @@ import com.fedegiorno.primerparcial.R
 class DetailFragment2 : Fragment() {
 
     private lateinit var v : View
-    lateinit var txtNombre: TextView
+    lateinit var txtNombre2: TextView
     lateinit var txtDescripcion: TextView
 
     override fun onCreateView(
@@ -35,20 +35,9 @@ class DetailFragment2 : Fragment() {
     ): View {
         // Inflate the layout for this fragment
         v = inflater.inflate(R.layout.fragment_detail2, container, false)
-        txtNombre = v.findViewById(R.id.txtNombre)
+        txtNombre2 = v.findViewById(R.id.txtNombre2)
         txtDescripcion = v.findViewById(R.id.txtDescripcion)
         return v
     }
 
-    override fun onStart() {
-        super.onStart()
-
-//        var name: String = DetailFragment2Args.fromBundle(requireArguments()).name
-//        var descripcion: String = DetailFragment2Args.fromBundle(requireArguments()).descripcion
-
-//        txtNombre.setText(name)
-//        txtDescripcion.setText(descripcion)
-
-
-    }
 }

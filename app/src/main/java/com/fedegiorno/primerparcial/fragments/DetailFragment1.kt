@@ -50,16 +50,4 @@ class DetailFragment1 : Fragment() {
         return v
     }
 
-    override fun onStart() {
-        super.onStart()
-
-
-//        txtNombre.setText()
-//        txtCapacitador.setText()
-//        txtPuntaje.setText()
-//        txtInicio.setText()
-//        txtFin.setText()
-//        txtHorario.setText()
-
-    }
 }
