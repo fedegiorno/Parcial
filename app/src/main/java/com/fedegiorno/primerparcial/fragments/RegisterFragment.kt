@@ -16,9 +16,6 @@ import com.fedegiorno.primerparcial.databases.docenteDao
 import com.fedegiorno.primerparcial.entities.Docente
 import com.google.android.material.snackbar.Snackbar
 import android.widget.Toast
-import kotlinx.android.synthetic.main.fragment_register.*
-
-//import kotlinx.android.synthetic.main.fragment_register.*
 
 class RegisterFragment : Fragment() {
 
