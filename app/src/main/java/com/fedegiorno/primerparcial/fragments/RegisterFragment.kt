@@ -9,13 +9,13 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
 
-import androidx.navigation.findNavController
 import com.fedegiorno.primerparcial.R
 import com.fedegiorno.primerparcial.databases.appDatabase
 import com.fedegiorno.primerparcial.databases.docenteDao
 import com.fedegiorno.primerparcial.entities.Docente
 import com.google.android.material.snackbar.Snackbar
 import android.widget.Toast
+import com.google.android.material.textfield.TextInputEditText
 
 class RegisterFragment : Fragment() {
 
@@ -25,19 +25,21 @@ class RegisterFragment : Fragment() {
     private var docenteDao: docenteDao? = null
 
     private lateinit var btnRegistro: Button
-    private lateinit var etxApellido: EditText
-    private lateinit var etxNombres: EditText
-    private lateinit var etxUsuario: EditText
-    private lateinit var etxNumeroDNI: EditText
-    private lateinit var etxEmail: EditText
-    private lateinit var etxClave: EditText
+    private lateinit var btnEliminar: Button
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            Log.d("PRUEBA", "onCreate [RegisterFragment]")
-        }
-    }
+    private lateinit var tieApellido: TextInputEditText
+    private lateinit var tieNombres: TextInputEditText
+    private lateinit var tieUsuario: TextInputEditText
+    private lateinit var tieNumeroDNI: TextInputEditText
+    private lateinit var tieEmail: EditText
+    private lateinit var tieClave: TextInputEditText
+
+    private var Apellido: String = ""
+    private var Nombres: String = ""
+    private var Usuario: String = ""
+    private var NumeroDNI: String = ""
+    private var Email: String = ""
+    private var Clave: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -46,14 +48,16 @@ class RegisterFragment : Fragment() {
         // Inflate the layout for this fragment
         Log.d("PRUEBA", "onCreateView [RegisterFragment]")
         v = inflater.inflate(R.layout.fragment_register, container, false)
-        btnRegistro = v.findViewById(R.id.btnRegistro)
 
-        etxApellido = v.findViewById(R.id.etxApellido)
-        etxNombres = v.findViewById(R.id.etxNombres)
-        etxUsuario = v.findViewById(R.id.etxUsuario)
-        etxNumeroDNI = v.findViewById(R.id.etxNumeroDNI)
-        etxClave = v.findViewById(R.id.etxClave)
-        etxEmail = v.findViewById(R.id.etxEmail)
+        tieApellido = v.findViewById(R.id.tieApellido)
+        tieNombres = v.findViewById(R.id.tieNombres)
+        tieUsuario = v.findViewById(R.id.tieUsuario)
+        tieNumeroDNI = v.findViewById(R.id.tieNumeroDNI)
+        tieClave = v.findViewById(R.id.tieClave)
+        tieEmail = v.findViewById(R.id.tieEmail)
+
+        btnRegistro = v.findViewById(R.id.btnRegistro)
+        btnEliminar = v.findViewById(R.id.btnEliminar)
 
         return v
     }
@@ -61,42 +65,98 @@ class RegisterFragment : Fragment() {
     override fun onStart() {
         super.onStart()
 
-        Log.d("PRUEBA", "onStart [RegisterFragment]")
+        //Instancio el objeto DB
         db = appDatabase.getAppDataBase(v.context)
-        Log.d("PRUEBA", "onStart [RegisterFragment] Definicion db superada")
+
+        //Instancio la interface a la DB
         docenteDao = db?.docenteDao()
 
         var nombreUsuario: String = RegisterFragmentArgs.fromBundle(requireArguments()).usuario
         var clave: String = RegisterFragmentArgs.fromBundle(requireArguments()).clave
+        var boton: Int = RegisterFragmentArgs.fromBundle(requireArguments()).boton
 
-        etxNombres.setText(nombreUsuario)
-        etxClave.setText(clave)
+        tieUsuario.setText(nombreUsuario)
+        tieClave.setText(clave)
+        Log.d("PRUEBA vista", tieUsuario.text.toString())
+        Log.d("PRUEBA vista", tieClave.text.toString())
 
-//        Snackbar.make(v,"Nombre de usuario: $NombreUsuario", Snackbar.LENGTH_LONG ).show()
-//        Toast.makeText(requireContext(),"Nombre de usuario: $NombreUsuario", Toast.LENGTH_LONG ).show()
+        if (boton == 1) {   //En caso de haber elegido Modificar
+            btnRegistro.text = "Modificar"
 
-        btnRegistro.setOnClickListener{
-            Toast.makeText(requireContext(),"Ingresar al nuevo docente a la base de datos", Toast.LENGTH_SHORT).show()
-
-            if (etxNumeroDNI.text.isNotEmpty() and
-                etxApellido.text.isNotEmpty() and
-                etxNombres.text.isNotEmpty() and
-                etxUsuario.text.isNotEmpty() and
-                etxEmail.text.isNotEmpty() and
-                etxClave.text.isNotEmpty()) {
-
-                docenteDao?.insertDocente(Docente(
-                    etxNumeroDNI.text.toString(),
-                    etxApellido.text.toString(),
-                    etxNombres.text.toString(),
-                    etxUsuario.text.toString(),
-                    etxEmail.text.toString(),
-                    etxClave.text.toString()))
-            } else {
-                Snackbar.make(v,"Complete todos los campos", Snackbar.LENGTH_LONG ).show()
-            }
+            Log.d("PRUEBA DB", docenteDao?.loadDocenteByUsuario(nombreUsuario)?.usuario.toString())
+            Log.d("PRUEBA DB", docenteDao?.loadDocenteById("16009450")?.apellido.toString())
         }
+
+        Apellido = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.apellido.toString()
+        Nombres = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.nombres.toString()
+        Usuario = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.usuario.toString()
+        NumeroDNI = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.dni.toString()
+        Email = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.email.toString()
+        Clave = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.password.toString()
+
+        tieApellido.setText(Apellido)
+        tieNombres.setText(Nombres)
+        //tieUsuario.setText(Usuario)
+        tieNumeroDNI.setText(NumeroDNI)
+        tieEmail.setText(Email)
+        //tieClave.setText(Clave)
+
+        btnRegistro.setOnClickListener {    //ALTA y UPDATE DOCENTE
+            Toast.makeText(
+                requireContext(),
+                "Ingresar al nuevo docente a la base de datos",
+                Toast.LENGTH_SHORT
+            ).show()
+
+            if (tieNumeroDNI.text.isNullOrEmpty() or
+                tieApellido.text.isNullOrEmpty() or
+                tieNombres.text.isNullOrEmpty() or
+                tieUsuario.text.isNullOrEmpty() or
+                tieEmail.text.isNullOrEmpty() or
+                tieClave.text.isNullOrEmpty()
+            ) {
+                when (boton) {
+                    0 -> { // Nuevo Docente
+                        docenteDao?.insertDocente(
+                            Docente(
+                                tieNumeroDNI.text.toString(),
+                                tieApellido.text.toString(),
+                                tieNombres.text.toString(),
+                                tieUsuario.text.toString(),
+                                tieEmail.text.toString(),
+                                tieClave.text.toString()
+                            )
+                        )
+                    }
+                    1 -> { // Modificar Docente
+                        docenteDao?.updateDocente(
+                            Docente(
+                                tieNumeroDNI.text.toString(),
+                                tieApellido.text.toString(),
+                                tieNombres.text.toString(),
+                                tieUsuario.text.toString(),
+                                tieEmail.text.toString(),
+                                tieClave.text.toString()
+                            )
+                        )
+                    }
+                }
+            }else {
+                Snackbar.make(v, "Complete todos los campos", Snackbar.LENGTH_LONG).show()
+            }
+        }// btnRegistro.setOnClickListener
+
+        btnEliminar.setOnClickListener{ // BAJA DOCENTE
+            docenteDao?.deleteDocente(
+                Docente(
+                    tieNumeroDNI.text.toString(),
+                    tieApellido.text.toString(),
+                    tieNombres.text.toString(),
+                    tieUsuario.text.toString(),
+                    tieEmail.text.toString(),
+                    tieClave.text.toString()
+                )
+            )
+        } // btnEliminar.setOnClickListener
     }
-
-
 }

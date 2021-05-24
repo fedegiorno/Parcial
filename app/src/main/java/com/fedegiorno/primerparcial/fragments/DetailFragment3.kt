@@ -18,7 +18,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import com.fedegiorno.primerparcial.R
-
+import android.widget.Toast
 
 /**
  * A simple [Fragment] subclass.
@@ -26,6 +26,9 @@ import com.fedegiorno.primerparcial.R
 class DetailFragment3 : Fragment() {
 
     private lateinit var v : View
+    lateinit var name: String
+    lateinit var requisitos: String
+
     lateinit var txtNombre3: TextView
     lateinit var txtRequisitos: TextView
 
@@ -38,6 +41,35 @@ class DetailFragment3 : Fragment() {
         txtNombre3 = v.findViewById(R.id.txtNombre3)
         txtRequisitos = v.findViewById(R.id.txtRequisitos)
         return v
+    }
+
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+
+        arguments?.takeIf { it.containsKey("name") }?.apply {
+            _nombre = getString("name", _nombre)
+        }
+        arguments?.takeIf { it.containsKey("requisitos") }?.apply {
+            _requisitos = getString("requisitos", _requisitos)
+        }
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        val campo1: String = _nombre
+        val campo8: String = _requisitos
+
+        //Toast.makeText(v.context, "Detail: $campo1", Toast.LENGTH_LONG).show()
+
+        txtNombre3.text = campo1
+        txtRequisitos.text = campo8
+    }
+
+    companion object{
+        var _nombre: String = ""
+        var _requisitos: String = ""
     }
 
 }

@@ -7,17 +7,19 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.EditText
-import android.widget.Toast
 import androidx.navigation.findNavController
 import com.fedegiorno.primerparcial.R
+import com.google.android.material.textfield.TextInputEditText
+import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
 
     private lateinit var v: View
     private lateinit var btnAcceder: Button
     private lateinit var btnNuevoDocente: Button
-    private lateinit var etxNombreUsuario: EditText
-    private lateinit var etxClave: EditText
+    private lateinit var btnModificar: Button
+    private lateinit var tieUsuario: TextInputEditText
+    private lateinit var tieClave: TextInputEditText
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -29,8 +31,9 @@ class LoginFragment : Fragment() {
         // Inflate the layout for this fragment
         btnAcceder = v.findViewById(R.id.btnAcceder)
         btnNuevoDocente = v.findViewById(R.id.btnNuevoDocente)
-        etxNombreUsuario = v.findViewById(R.id.etxNombreUsuario)
-        etxClave = v.findViewById(R.id.etxClave)
+        btnModificar = v.findViewById(R.id.btnModificar)
+        tieUsuario = v.findViewById(R.id.tieUsuario)
+        tieClave = v.findViewById(R.id.tieClave)
 
         return v
     }
@@ -49,10 +52,20 @@ class LoginFragment : Fragment() {
 //            Toast.makeText(v.context, "Usuario: ", Toast.LENGTH_SHORT).show()
 //            Toast.makeText(v.context, "Clave: ", Toast.LENGTH_SHORT).show()
             val actionRegister = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(
-                etxNombreUsuario.text.toString(),
-                etxClave.text.toString())
+                tieUsuario.text.toString(),
+                tieClave.text.toString(),
+                0)
             v.findNavController().navigate(actionRegister)
         }
+
+        btnModificar.setOnClickListener{
+            val actionModificar = LoginFragmentDirections.actionLoginFragmentToRegisterFragment(
+                tieUsuario.text.toString(),
+                tieClave.text.toString(),
+                1)
+            v.findNavController().navigate(actionModificar)
+        }
+
 
     }
 }

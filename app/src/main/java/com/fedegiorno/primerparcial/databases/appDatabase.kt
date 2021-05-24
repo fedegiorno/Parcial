@@ -8,10 +8,15 @@ import androidx.room.RoomDatabase
 import com.fedegiorno.primerparcial.entities.Docente
 
 
-@Database(entities = [Docente::class], version = 1, exportSchema = false)
+@Database(
+    entities = [Docente::class],
+    //Aca se agregan todas las tablas
+    version = 1,
+    exportSchema = false)
 
 abstract class appDatabase: RoomDatabase() {
 
+    //Aca se agregan todas las interfaces que uso
     abstract fun docenteDao(): docenteDao
 
     companion object {

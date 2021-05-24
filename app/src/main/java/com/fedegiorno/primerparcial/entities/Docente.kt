@@ -29,6 +29,7 @@ class Docente (dni: String, apellido: String, nombres: String, usuario: String, 
 
 
     init {
+        this.dni = dni
         this.apellido = apellido
         this.nombres = nombres
         this.usuario = usuario

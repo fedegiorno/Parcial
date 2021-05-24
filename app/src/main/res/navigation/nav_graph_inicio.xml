@@ -35,6 +35,9 @@
         <argument
             android:name="clave"
             app:argType="string" />
+        <argument
+            android:name="boton"
+            app:argType="integer" />
     </fragment>
 
 </navigation>

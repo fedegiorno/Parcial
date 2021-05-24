@@ -16,24 +16,89 @@ Ubicacion: res.layout
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/colorPrimaryLigth"
+    android:paddingHorizontal="10dp"
     tools:context=".fragments.DetailFragment1">
 
     <!-- TODO: Update blank fragment layout -->
 
     <TextView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="@string/Tab1"
-        tools:layout_editor_absoluteX="-40dp"
-        tools:layout_editor_absoluteY="40dp" />
+        android:id="@+id/txtTitCapacitador"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Capacitador: "
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
+
+    <TextView
+        android:id="@+id/txtTitPuntaje"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Puntaje: "
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitCapacitador" />
+
+    <TextView
+        android:id="@+id/txtTitInicio"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Inicio: "
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitPuntaje" />
+
+    <TextView
+        android:id="@+id/txtTitFin"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Fin: "
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitInicio" />
+
+    <TextView
+        android:id="@+id/txtTitHorario"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginTop="20dp"
+        android:text="Horario: "
+        android:textColor="@color/blue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtTitFin" />
 
     <TextView
         android:id="@+id/txtNombre"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="40dp"
+        android:layout_marginTop="20dp"
+        android:inputType="textMultiLine|textImeMultiLine"
+        android:paddingHorizontal="10dp"
         android:text="TextView"
-        android:textSize="34sp"
+        android:textColor="@color/blue"
+        android:textSize="24sp"
+        android:textStyle="italic"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
@@ -43,8 +108,10 @@ Ubicacion: res.layout
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTitCapacitador"
         app:layout_constraintTop_toBottomOf="@+id/txtNombre" />
 
     <TextView
@@ -53,8 +120,10 @@ Ubicacion: res.layout
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTitPuntaje"
         app:layout_constraintTop_toBottomOf="@+id/txtCapacitador" />
 
     <TextView
@@ -62,9 +131,12 @@ Ubicacion: res.layout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:inputType="date|datetime"
         android:text="TextView"
+        android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTitInicio"
         app:layout_constraintTop_toBottomOf="@+id/txtPuntaje" />
 
     <TextView
@@ -72,9 +144,12 @@ Ubicacion: res.layout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:inputType="date|datetime"
         android:text="TextView"
+        android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTitFin"
         app:layout_constraintTop_toBottomOf="@+id/txtInicio" />
 
     <TextView
@@ -83,8 +158,10 @@ Ubicacion: res.layout
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
         android:text="TextView"
+        android:textColor="@color/blue"
         android:textSize="20sp"
-        app:layout_constraintStart_toStartOf="parent"
+        android:textStyle="italic"
+        app:layout_constraintStart_toEndOf="@+id/txtTitHorario"
         app:layout_constraintTop_toBottomOf="@+id/txtFin" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

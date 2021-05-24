@@ -16,29 +16,31 @@
         android:id="@+id/cnlCurso"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:background="#009688"
-        android:translationY="10dp">
+        android:background="#009688">
 
         <ImageView
             android:id="@+id/imgCurso"
-            android:contentDescription="Pizarra"
             android:layout_width="100dp"
             android:layout_height="100dp"
+            android:layout_marginTop="10dp"
+            android:layout_marginBottom="10dp"
+            android:contentDescription="Pizarra"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
             android:id="@+id/txtCurso"
-            android:layout_width="wrap_content"
+            android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="16dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginStart="16dp"
+            android:inputType="textMultiLine|textImeMultiLine"
             android:text="Curso"
-            android:textAlignment="textEnd"
-            android:textColor="#000000"
-            android:textSize="24sp"
+            android:textAlignment="textStart"
+            android:textColor="@color/blue"
+            android:textSize="14sp"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/imgCurso"
             app:layout_constraintTop_toTopOf="parent" />
 
         <TextView
@@ -47,10 +49,11 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginEnd="8dp"
-            android:text="Profesor"
+            android:layout_marginBottom="16dp"
+            android:text="Capacitador"
             android:textAlignment="textEnd"
-            android:textColor="#000000"
-            android:textSize="24sp"
+            android:textColor="@color/blue"
+            android:textSize="16sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/txtCurso" />
