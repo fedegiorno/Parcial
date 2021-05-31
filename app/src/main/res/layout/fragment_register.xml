@@ -23,7 +23,7 @@ Ubicacion: res.layout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_percent="0.2" />
+        app:layout_constraintGuide_percent="0.02" />
 
     <com.google.android.material.textfield.TextInputLayout
         android:id="@+id/tilApellido"
@@ -41,7 +41,7 @@ Ubicacion: res.layout
             android:id="@+id/tieApellido"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Apellido" />
+            android:hint="@string/Apellido"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -59,7 +59,7 @@ Ubicacion: res.layout
             android:id="@+id/tieNombres"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Nombres" />
+            android:hint="@string/Nombres"/>
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -77,7 +77,7 @@ Ubicacion: res.layout
             android:id="@+id/tieUsuario"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Usuario" />
+            android:hint="@string/Usuario" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -95,7 +95,7 @@ Ubicacion: res.layout
             android:id="@+id/tieNumeroDNI"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="DNI" />
+            android:hint="@string/DNI" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <com.google.android.material.textfield.TextInputLayout
@@ -115,8 +115,10 @@ Ubicacion: res.layout
             android:layout_height="wrap_content"
             android:layout_weight="1"
             android:ems="10"
-            android:hint="eMail"
-            android:inputType="textEmailAddress" />
+            android:hint="@string/eMail"
+            android:inputType="textEmailAddress"
+            android:shadowRadius="5"
+            android:autofillHints="" />
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -135,16 +137,16 @@ Ubicacion: res.layout
             android:id="@+id/tieClave"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:hint="Clave" />
+            android:hint="@string/Clave" />
     </com.google.android.material.textfield.TextInputLayout>
 
     <Button
-        android:id="@+id/btnEliminar"
+        android:id="@+id/btnAceptarEliminar"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="32dp"
         android:layout_marginTop="16dp"
-        android:text="Eliminar"
+        android:text="@string/Eliminar"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilClave" />
 
@@ -154,7 +156,7 @@ Ubicacion: res.layout
         android:layout_height="wrap_content"
         android:layout_marginTop="16dp"
         android:layout_marginEnd="24dp"
-        android:text="Registrar"
+        android:text="@string/Registrar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tilClave" />
 

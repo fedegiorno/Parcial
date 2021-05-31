@@ -34,12 +34,7 @@ class RegisterFragment : Fragment() {
     private lateinit var tieEmail: EditText
     private lateinit var tieClave: TextInputEditText
 
-    private var Apellido: String = ""
-    private var Nombres: String = ""
-    private var Usuario: String = ""
-    private var NumeroDNI: String = ""
-    private var Email: String = ""
-    private var Clave: String = ""
+    lateinit var docenteActual: Docente
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -57,7 +52,7 @@ class RegisterFragment : Fragment() {
         tieEmail = v.findViewById(R.id.tieEmail)
 
         btnRegistro = v.findViewById(R.id.btnRegistro)
-        btnEliminar = v.findViewById(R.id.btnEliminar)
+        btnEliminar = v.findViewById(R.id.btnAceptarEliminar)
 
         return v
     }
@@ -75,70 +70,62 @@ class RegisterFragment : Fragment() {
         var clave: String = RegisterFragmentArgs.fromBundle(requireArguments()).clave
         var boton: Int = RegisterFragmentArgs.fromBundle(requireArguments()).boton
 
-        tieUsuario.setText(nombreUsuario)
-        tieClave.setText(clave)
-        Log.d("PRUEBA vista", tieUsuario.text.toString())
-        Log.d("PRUEBA vista", tieClave.text.toString())
+        when (boton){
+            0 -> {//En caso de haber tecleado Nuevo Docente
+                btnRegistro.text = getString(R.string.Agregar)
+                tieApellido.setText("")
+                tieNombres.setText("")
+                tieUsuario.setText(nombreUsuario)
+                tieNumeroDNI.setText("")
+                tieEmail.setText("")
+                tieClave.setText(clave)
+            }
+            1 -> {//En caso de haber elegido Modificar o Eliminar
+                btnRegistro.text = getString(R.string.Actualizar)
+                tieApellido.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.apellido.toString())
+                tieNombres.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.nombres.toString())
+                tieUsuario.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.usuario.toString())
+                tieNumeroDNI.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.dni.toString())
+                tieEmail.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.email.toString())
+                tieClave.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.password.toString())
 
-        if (boton == 1) {   //En caso de haber elegido Modificar
-            btnRegistro.text = "Modificar"
-
-            Log.d("PRUEBA DB", docenteDao?.loadDocenteByUsuario(nombreUsuario)?.usuario.toString())
-            Log.d("PRUEBA DB", docenteDao?.loadDocenteById("16009450")?.apellido.toString())
+                Toast.makeText(
+                    requireContext(),
+                    tieApellido.text.toString(),
+                    Toast.LENGTH_SHORT
+                ).show()
+            }
         }
-
-        Apellido = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.apellido.toString()
-        Nombres = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.nombres.toString()
-        Usuario = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.usuario.toString()
-        NumeroDNI = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.dni.toString()
-        Email = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.email.toString()
-        Clave = docenteDao?.loadDocenteByUsuario(nombreUsuario)?.password.toString()
-
-        tieApellido.setText(Apellido)
-        tieNombres.setText(Nombres)
-        //tieUsuario.setText(Usuario)
-        tieNumeroDNI.setText(NumeroDNI)
-        tieEmail.setText(Email)
-        //tieClave.setText(Clave)
 
         btnRegistro.setOnClickListener {    //ALTA y UPDATE DOCENTE
             Toast.makeText(
                 requireContext(),
-                "Ingresar al nuevo docente a la base de datos",
+                "Ingresa nuevo docente a la base de datos",
                 Toast.LENGTH_SHORT
             ).show()
 
-            if (tieNumeroDNI.text.isNullOrEmpty() or
+            if (!(tieNumeroDNI.text.isNullOrEmpty() or
                 tieApellido.text.isNullOrEmpty() or
                 tieNombres.text.isNullOrEmpty() or
                 tieUsuario.text.isNullOrEmpty() or
                 tieEmail.text.isNullOrEmpty() or
-                tieClave.text.isNullOrEmpty()
+                tieClave.text.isNullOrEmpty())
             ) {
+                docenteActual = Docente(
+                    tieNumeroDNI.text.toString(),
+                    tieApellido.text.toString(),
+                    tieNombres.text.toString(),
+                    tieUsuario.text.toString(),
+                    tieEmail.text.toString(),
+                    tieClave.text.toString()
+                )
+
                 when (boton) {
                     0 -> { // Nuevo Docente
-                        docenteDao?.insertDocente(
-                            Docente(
-                                tieNumeroDNI.text.toString(),
-                                tieApellido.text.toString(),
-                                tieNombres.text.toString(),
-                                tieUsuario.text.toString(),
-                                tieEmail.text.toString(),
-                                tieClave.text.toString()
-                            )
-                        )
+                        docenteDao?.insertDocente(docenteActual)
                     }
                     1 -> { // Modificar Docente
-                        docenteDao?.updateDocente(
-                            Docente(
-                                tieNumeroDNI.text.toString(),
-                                tieApellido.text.toString(),
-                                tieNombres.text.toString(),
-                                tieUsuario.text.toString(),
-                                tieEmail.text.toString(),
-                                tieClave.text.toString()
-                            )
-                        )
+                        docenteDao?.updateDocente(docenteActual)
                     }
                 }
             }else {
@@ -159,4 +146,9 @@ class RegisterFragment : Fragment() {
             )
         } // btnEliminar.setOnClickListener
     }
+
+    companion object{
+        fun newInstance(): RegisterFragment = RegisterFragment()
+    }
+
 }

@@ -40,7 +40,26 @@ Ubicacion: res.values
 
     <!-- Items overflow -->
     <string name="Item1">Informacion CIIEs</string>
-    <string name="Item2">Preferencias</string>
-    <string name="Item3">Salir</string>
+    <string name="Item2">Altas Cursos</string>
+    <string name="Item3">Modificar Curso</string>
+    <string name="Item4">Eliminar Curso</string>
+    <string name="Item5">Preferencias</string>
+    <string name="Item6">Salir</string>
+
+    <string name="Cancelar">Cancelar</string>
+    <string name="Aceptar">Aceptar</string>
+    <string name="Modificar">Modificar</string>
+    <string name="Eliminar">Eliminar</string>
+    <string name="Actualizar">Actualizar</string>
+
+    <string name="Apellido">Apellido</string>
+    <string name="Nombres">Nombres</string>
+    <string name="Usuario">Usuario</string>
+    <string name="DNI">DNI</string>
+    <string name="eMail">eMail</string>
+    <string name="Clave">Clave</string>
+    <string name="Registrar">Registrar</string>
+    <string name="Agregar">Agregar</string>
+
 
 </resources>

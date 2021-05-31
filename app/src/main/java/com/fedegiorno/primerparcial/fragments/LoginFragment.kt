@@ -1,3 +1,4 @@
+
 package com.fedegiorno.primerparcial.fragments
 
 import android.os.Bundle
@@ -6,11 +7,9 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
-import android.widget.EditText
 import androidx.navigation.findNavController
 import com.fedegiorno.primerparcial.R
 import com.google.android.material.textfield.TextInputEditText
-import com.google.android.material.textfield.TextInputLayout
 
 class LoginFragment : Fragment() {
 
@@ -27,11 +26,12 @@ class LoginFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View
     {
-        v=inflater.inflate(R.layout.fragment_login, container, false)
+        v = inflater.inflate(R.layout.fragment_login, container, false)
         // Inflate the layout for this fragment
+
         btnAcceder = v.findViewById(R.id.btnAcceder)
         btnNuevoDocente = v.findViewById(R.id.btnNuevoDocente)
-        btnModificar = v.findViewById(R.id.btnModificar)
+        btnModificar = v.findViewById(R.id.btnAceptarModificar)
         tieUsuario = v.findViewById(R.id.tieUsuario)
         tieClave = v.findViewById(R.id.tieClave)
 

@@ -1,0 +1,52 @@
+package com.fedegiorno.primerparcial.fragments
+
+import android.os.Bundle
+import androidx.fragment.app.Fragment
+import android.view.LayoutInflater
+import android.view.View
+import android.view.ViewGroup
+import android.widget.Button
+import com.fedegiorno.primerparcial.R
+import com.fedegiorno.primerparcial.databases.cursoDao
+import com.fedegiorno.primerparcial.databases.appDatabase
+
+class DbCursosFragmentEliminar : Fragment() {
+
+    private lateinit var v: View
+    private lateinit var btnCancelarEliminar: Button
+    private lateinit var btnAceptarEliminar: Button
+
+    private var db: appDatabase? = null
+    private var cursoDao: cursoDao? = null
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        arguments?.let {
+        }
+    }
+
+    override fun onCreateView(
+        inflater: LayoutInflater, container: ViewGroup?,
+        savedInstanceState: Bundle?
+    ): View? {
+        // Inflate the layout for this fragment
+        v = inflater.inflate(R.layout.fragment_db_cursos_eliminar, container, false)
+
+        btnCancelarEliminar = v.findViewById(R.id.btnCancelarEliminar)
+        btnAceptarEliminar = v.findViewById(R.id.btnAceptarEliminar)
+
+        return v
+    }
+
+    override fun onStart() {
+        super.onStart()
+
+        btnAceptarEliminar.setOnClickListener {
+
+        }
+
+        btnCancelarEliminar.setOnClickListener {
+
+        }
+    }
+}

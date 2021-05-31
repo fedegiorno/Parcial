@@ -7,17 +7,31 @@ import android.view.Menu
 import android.view.MenuItem
 import android.view.View
 import android.widget.Toast
-import androidx.navigation.findNavController
 import com.fedegiorno.primerparcial.R
-import com.fedegiorno.primerparcial.fragments.ListCursosFragmentDirections
+import androidx.navigation.fragment.NavHostFragment
+import androidx.navigation.ui.NavigationUI
+import com.google.android.material.bottomnavigation.BottomNavigationView
+
 
 class MainActivity2 : AppCompatActivity() {
 
     lateinit var v: View
 
+    /* BOTTOM NAVIGATION BAR */
+    private lateinit var bottomNavViewMain2 : BottomNavigationView
+    private lateinit var navHostFragment2 : NavHostFragment
+    /* BOTTOM NAVIGATION BAR */
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main2)
+
+        /* BOTTOM NAVIGATION BAR */
+        navHostFragment2 = supportFragmentManager.findFragmentById(R.id.nav_host_main2) as NavHostFragment
+        bottomNavViewMain2 = findViewById(R.id.bottom_bar_2)
+        NavigationUI.setupWithNavController(bottomNavViewMain2, navHostFragment2.navController)
+        /* BOTTOM NAVIGATION BAR */
+
     }
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
@@ -51,4 +65,7 @@ class MainActivity2 : AppCompatActivity() {
         }
         //super.onOptionsItemSelected(item)
     }
+
+    companion object
+
 }

@@ -2,11 +2,16 @@ package com.fedegiorno.primerparcial.entities
 
 import androidx.room.ColumnInfo
 import androidx.room.Entity
-import androidx.room.Ignore
 import androidx.room.PrimaryKey
 
-@Entity(tableName = "Docente")
-class Docente (dni: String, apellido: String, nombres: String, usuario: String, email: String, password: String) {
+@Entity(tableName = "t_docente")
+class Docente (
+    dni: String,
+    apellido: String,
+    nombres: String,
+    usuario: String,
+    email: String,
+    password: String) {
 
     @PrimaryKey
     @ColumnInfo(name="dni")

@@ -14,7 +14,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:defaultNavHost="true"
-        app:layout_constraintBottom_toTopOf="@+id/bottom_bar"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
@@ -24,14 +23,14 @@
     <com.google.android.material.bottomnavigation.BottomNavigationView
         android:id="@+id/bottom_bar"
         android:layout_width="match_parent"
-        android:layout_height="73dp"
+        android:layout_height="wrap_content"
         app:itemBackground="@color/colorPrimaryDark"
         app:itemHorizontalTranslationEnabled="true"
         app:labelVisibilityMode="auto"
-        app:layout_constraintBottom_toBottomOf="@+id/nav_host_infociie"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
-        app:menu="@menu/bottom_bar"/>
+        app:menu="@menu/bottom_bar" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

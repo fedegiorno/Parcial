@@ -9,11 +9,11 @@
         android:title="@string/Item1" />
     <item
         android:id="@+id/Item2"
-        android:title="@string/Item2"
+        android:title="@string/Item5"
         android:icon="@drawable/ic_baseline_settings_24"
         app:showAsAction="ifRoom"/>
     <item
         android:id="@+id/Item3"
-        android:title="@string/Item3" />
+        android:title="@string/Item6" />
 
 </menu>

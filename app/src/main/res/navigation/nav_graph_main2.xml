@@ -1,17 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<!--
-Desarrollo de Aplicaciones para Dispositivos Moviles
-PRIMER PARCIAL
-Temas: BottomNavigationBars, NavigationDrawer, Tabs, Preferences y Splash
-
-nav_graph_main2.xml
-Ubicacion: res.navigation
-
--->
-
-<navigation
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph_main2"
@@ -31,8 +20,16 @@ Ubicacion: res.navigation
         <action
             android:id="@+id/action_listCursosFragment_to_settingsActivity"
             app:destination="@id/settingsActivity" />
+        <action
+            android:id="@+id/action_listCursosFragment_to_dbCursosFragmentAlta"
+            app:destination="@id/dbCursosFragmentAlta" />
+        <action
+            android:id="@+id/action_listCursosFragment_to_dbCursosFragmentEliminar"
+            app:destination="@id/dbCursosFragmentEliminar" />
+        <action
+            android:id="@+id/action_listCursosFragment_to_dbCursosFragmentModificar"
+            app:destination="@id/dbCursosFragmentModificar" />
     </fragment>
-
     <activity
         android:id="@+id/infoCIIEActivity"
         android:name="com.fedegiorno.primerparcial.activities.InfoCIIEActivity"
@@ -93,5 +90,23 @@ Ubicacion: res.navigation
         android:id="@+id/settingsActivity"
         android:name="com.fedegiorno.primerparcial.activities.SettingsActivity"
         android:label="SettingsActivity" />
-
+    <fragment
+        android:id="@+id/dbCursosFragmentAlta"
+        android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentAlta"
+        android:label="fragment_db_cursos_alta"
+        tools:layout="@layout/fragment_db_cursos_alta" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
+    <fragment
+        android:id="@+id/dbCursosFragmentModificar"
+        android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentModificar"
+        android:label="fragment_db_cursos_modificar"
+        tools:layout="@layout/fragment_db_cursos_modificar" />
+    <fragment
+        android:id="@+id/dbCursosFragmentEliminar"
+        android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentEliminar"
+        android:label="fragment_db_cursos_eliminar"
+        tools:layout="@layout/fragment_db_cursos_eliminar" />
 </navigation>

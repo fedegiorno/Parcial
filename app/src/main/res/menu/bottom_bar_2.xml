@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+
+<!--
+Desarrollo de Aplicaciones para Dispositivos Moviles
+PRIMER PARCIAL
+
+bottom_bar_2.xml
+Ubicacion: res.menu
+
+-->
+
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/dbCursosFragmentAlta"
+        android:icon="@android:drawable/ic_menu_add"
+        android:title="Alta Cursos" />
+
+    <item
+        android:id="@+id/dbCursosFragmentModificar"
+        android:icon="@android:drawable/ic_menu_edit"
+        android:title="Modificar Cursos" />
+
+    <item
+        android:id="@+id/dbCursosFragmentEliminar"
+        android:icon="@android:drawable/btn_dialog"
+        android:title="Eliminar Cursos" />
+
+</menu>

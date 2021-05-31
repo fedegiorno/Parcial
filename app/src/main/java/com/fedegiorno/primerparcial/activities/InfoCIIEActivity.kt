@@ -11,11 +11,8 @@ Esta activity mostrara el uso de NavigationDrawer
 
 package com.fedegiorno.primerparcial.activities
 
-import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.view.MenuItem
-import android.widget.Toast
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.fedegiorno.primerparcial.R
