@@ -31,17 +31,18 @@ class RegisterFragment : Fragment() {
     private lateinit var tieNombres: TextInputEditText
     private lateinit var tieUsuario: TextInputEditText
     private lateinit var tieNumeroDNI: TextInputEditText
-    private lateinit var tieEmail: EditText
+    private lateinit var tieEmail: TextInputEditText
     private lateinit var tieClave: TextInputEditText
 
     lateinit var docenteActual: Docente
+
+    lateinit var mensajeAcceso: String
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         // Inflate the layout for this fragment
-        Log.d("PRUEBA", "onCreateView [RegisterFragment]")
         v = inflater.inflate(R.layout.fragment_register, container, false)
 
         tieApellido = v.findViewById(R.id.tieApellido)
@@ -70,9 +71,16 @@ class RegisterFragment : Fragment() {
         var clave: String = RegisterFragmentArgs.fromBundle(requireArguments()).clave
         var boton: Int = RegisterFragmentArgs.fromBundle(requireArguments()).boton
 
+        Toast.makeText(
+            requireContext(),
+            "onStart()",
+            Toast.LENGTH_SHORT
+        ).show()
+        
         when (boton){
             0 -> {//En caso de haber tecleado Nuevo Docente
                 btnRegistro.text = getString(R.string.Agregar)
+                mensajeAcceso = "Ingresa nuevo docente a la base de datos"
                 tieApellido.setText("")
                 tieNombres.setText("")
                 tieUsuario.setText(nombreUsuario)
@@ -82,6 +90,7 @@ class RegisterFragment : Fragment() {
             }
             1 -> {//En caso de haber elegido Modificar o Eliminar
                 btnRegistro.text = getString(R.string.Actualizar)
+                mensajeAcceso = "Docente actualizado en la base de datos"
                 tieApellido.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.apellido.toString())
                 tieNombres.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.nombres.toString())
                 tieUsuario.setText(docenteDao?.loadDocenteByUsuario(nombreUsuario)?.usuario.toString())
@@ -100,7 +109,7 @@ class RegisterFragment : Fragment() {
         btnRegistro.setOnClickListener {    //ALTA y UPDATE DOCENTE
             Toast.makeText(
                 requireContext(),
-                "Ingresa nuevo docente a la base de datos",
+                mensajeAcceso,
                 Toast.LENGTH_SHORT
             ).show()
 
@@ -145,10 +154,6 @@ class RegisterFragment : Fragment() {
                 )
             )
         } // btnEliminar.setOnClickListener
-    }
-
-    companion object{
-        fun newInstance(): RegisterFragment = RegisterFragment()
     }
 
 }

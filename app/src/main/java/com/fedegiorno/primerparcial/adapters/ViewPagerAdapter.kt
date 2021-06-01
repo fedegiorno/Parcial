@@ -11,36 +11,36 @@ class ViewPagerAdapter(fragmentActivity: FragmentActivity) : FragmentStateAdapte
 
     override fun createFragment(position: Int): Fragment {
 
-        val fragment_a = DetailFragment1()
-        fragment_a.arguments = Bundle().apply {
-            putString("name", _nombre)              //putInt("id_cd", identificador)
-            putString("descripcion", _descripcion)  //putInt("id_cd", identificador)
-            putString("capacitador", _capacitador)  //putInt("id_cd", identificador)
-            putString("puntaje", _puntaje)          //putInt("id_cd", identificador)
-            putString("inicio", _inicio)            //putInt("id_cd", identificador)
-            putString("fin", _fin)                  //putInt("id_cd", identificador)
-            putString("horario", _horario)          //putInt("id_cd", identificador)
-            putString("requisitos", _requisitos)    //putInt("id_cd", identificador)
+        val fragment1 = DetailFragment1()
+        fragment1.arguments = Bundle().apply {
+            putString("name", _nombre)
+            putString("descripcion", _descripcion)
+            putString("capacitador", _capacitador)
+            putString("puntaje", _puntaje)
+            putString("inicio", _inicio)
+            putString("fin", _fin)
+            putString("horario", _horario)
+            putString("requisitos", _requisitos)
         }
 
-        val fragment_b = DetailFragment2()
-        fragment_b.arguments = Bundle().apply {
-            putString("name", _nombre)              //putInt("id_cd", identificador)
-            putString("descripcion", _descripcion)  //putInt("id_cd", identificador)
+        val fragment2 = DetailFragment2()
+        fragment2.arguments = Bundle().apply {
+            putString("name", _nombre)
+            putString("descripcion", _descripcion)
         }
 
-        val fragment_c = DetailFragment3()
-        fragment_c.arguments = Bundle().apply {
-            putString("name", _nombre)              //putInt("id_cd", identificador)
-            putString("requisitos", _requisitos)    //putInt("id_cd", identificador)
+        val fragment3 = DetailFragment3()
+        fragment3.arguments = Bundle().apply {
+            putString("name", _nombre)
+            putString("requisitos", _requisitos)
         }
 
         return when (position) {
-            0 -> fragment_a
-            1 -> fragment_b
-            2 -> fragment_c
+            0 -> fragment1
+            1 -> fragment2
+            2 -> fragment3
 
-            else -> fragment_a
+            else -> fragment1
         }
     }
 

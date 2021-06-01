@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.CheckBox
 import android.widget.ImageView
 import android.widget.TextView
 import androidx.cardview.widget.CardView
@@ -24,7 +25,7 @@ class CursoListAdapter(
     val onItemClick: (Int) -> Boolean,
     //Recibe un metodo que se ejecutara en el Fragmento
 
-) : RecyclerView.Adapter<CursoListAdapter.CursoHolder>() {
+    ) : RecyclerView.Adapter<CursoListAdapter.CursoHolder>() {
     //Extiende o implementa la clase RecyclerView.Adapter que trabaja con la clase inner CursoHolder
 
     companion object {
@@ -105,6 +106,7 @@ class CursoListAdapter(
         fun getCardLayout (): CardView {
             return view.findViewById(R.id.carCurso)
         }
+
 
     }
 

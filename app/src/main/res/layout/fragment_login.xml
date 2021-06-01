@@ -73,7 +73,7 @@ Ubicacion: res.layout
 
         <ImageView
             android:id="@+id/imvClave"
-            android:layout_width="0dp"
+            android:layout_width="32dp"
             android:layout_height="wrap_content"
             android:layout_gravity="center|center_horizontal"
             android:layout_weight="1"

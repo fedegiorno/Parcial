@@ -31,4 +31,9 @@ interface docenteDao{
     // Devuelve el Docente según su nombre de usuario
     @Query("SELECT * FROM t_docente WHERE usuario = :usuario")
     fun loadDocenteByUsuario(usuario: String): Docente?
+
+    // Cuenta elementos de la Tabla
+    @Query("SELECT count(*) FROM t_docente")
+    fun cuenta(): Int
+
 }

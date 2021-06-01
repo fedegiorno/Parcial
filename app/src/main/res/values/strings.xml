@@ -26,8 +26,8 @@ Ubicacion: res.values
 
     <!-- Messages Preferences -->
     <string name="signature_title">Your signature</string>
-    <string name="backlistcolor_title">Color de fondo de la lista</string>
-    <string name="fontsize_title">Tamaño texto lista</string>
+    <string name="backcolor_title">Color de fondo</string>
+    <string name="fontsize_title">Tamaño texto</string>
 
     <!-- Sync Preferences -->
     <string name="sync_title">Sync email periodically</string>

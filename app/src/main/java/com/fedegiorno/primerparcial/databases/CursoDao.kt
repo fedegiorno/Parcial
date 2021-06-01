@@ -24,4 +24,8 @@ interface cursoDao {
     @Delete
     fun deleteCurso(Docente: Curso?)
 
+    // Cuenta elementos de la Tabla
+    @Query("SELECT count(*) FROM t_curso")
+    fun cuenta(): Int
+
 }

@@ -11,6 +11,7 @@ import com.fedegiorno.primerparcial.R
 import androidx.navigation.fragment.NavHostFragment
 import androidx.navigation.ui.NavigationUI
 import com.google.android.material.bottomnavigation.BottomNavigationView
+import kotlin.properties.Delegates
 
 
 class MainActivity2 : AppCompatActivity() {
@@ -42,19 +43,14 @@ class MainActivity2 : AppCompatActivity() {
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
         return when(item.itemId) {
             R.id.Item1 -> {
-//                Toast.makeText(this,"Informacion CIIEs", Toast.LENGTH_SHORT).show()
                 val InfoCiieActivity = Intent(this, InfoCIIEActivity::class.java)
                 startActivity(InfoCiieActivity)
-//                val action2 = ListCursosFragmentDirections.actionListCursosFragmentToInfoCIIEActivity()
-//                findNavController(R.id.activity_main2).navigate(action2)
                 true
             }
             R.id.Item2 -> {
                 Toast.makeText(this,"Preferencias", Toast.LENGTH_SHORT).show()
                 val preferencias: Intent = Intent(this, SettingsActivity::class.java)
                 startActivity(preferencias)
-//                val actionPref = ListCursosFragmentDirections.actionListCursosFragmentToSettingsFragment()
-//                v.findNavController().navigate(actionPref)
                 true
             }
             R.id.Item3 -> {
@@ -63,7 +59,6 @@ class MainActivity2 : AppCompatActivity() {
             }
             else -> false
         }
-        //super.onOptionsItemSelected(item)
     }
 
     companion object

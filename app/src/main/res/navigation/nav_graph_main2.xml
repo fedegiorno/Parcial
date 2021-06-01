@@ -70,6 +70,15 @@
         <argument
             android:name="requisitos"
             app:argType="string" />
+        <argument
+            android:name="id"
+            app:argType="integer" />
+        <action
+            android:id="@+id/action_containerFragment_to_dbCursosFragmentEliminar"
+            app:destination="@id/dbCursosFragmentEliminar" />
+        <action
+            android:id="@+id/action_containerFragment_to_dbCursosFragmentModificar"
+            app:destination="@id/dbCursosFragmentModificar" />
     </fragment>
     <fragment
         android:id="@+id/detailFragment1"
@@ -94,19 +103,23 @@
         android:id="@+id/dbCursosFragmentAlta"
         android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentAlta"
         android:label="fragment_db_cursos_alta"
-        tools:layout="@layout/fragment_db_cursos_alta" >
+        tools:layout="@layout/fragment_db_cursos_alta" />
+    <fragment
+        android:id="@+id/dbCursosFragmentModificar"
+        android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentModificar"
+        android:label="fragment_db_cursos_modificar"
+        tools:layout="@layout/fragment_db_cursos_modificar" >
         <argument
             android:name="id"
             app:argType="integer" />
     </fragment>
     <fragment
-        android:id="@+id/dbCursosFragmentModificar"
-        android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentModificar"
-        android:label="fragment_db_cursos_modificar"
-        tools:layout="@layout/fragment_db_cursos_modificar" />
-    <fragment
         android:id="@+id/dbCursosFragmentEliminar"
         android:name="com.fedegiorno.primerparcial.fragments.DbCursosFragmentEliminar"
         android:label="fragment_db_cursos_eliminar"
-        tools:layout="@layout/fragment_db_cursos_eliminar" />
+        tools:layout="@layout/fragment_db_cursos_eliminar" >
+        <argument
+            android:name="id"
+            app:argType="integer" />
+    </fragment>
 </navigation>

@@ -36,6 +36,23 @@
             android:orientation="vertical">
 
             <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/tilIdentificador"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:endIconMode="clear_text"
+                android:paddingVertical="5dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/tieIdentificador"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="48dp"
+                    android:ems="10"
+                    android:hint="Identificador del Curso"
+                    android:inputType="textMultiLine|textPersonName" />
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
                 android:id="@+id/tilName"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -46,7 +63,6 @@
                     android:id="@+id/tieName"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="48dp"
                     android:ems="10"
                     android:hint="Nombre del Curso"
                     android:inputType="textMultiLine|textPersonName" />

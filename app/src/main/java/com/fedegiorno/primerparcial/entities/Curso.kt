@@ -19,8 +19,7 @@ class Curso( id: Int,
              requisitos: String?)  {
 
 
-    @PrimaryKey(autoGenerate = true)
-    @ColumnInfo(name = "id")
+    @PrimaryKey
     var id: Int = 0
 
     @ColumnInfo(name="name")

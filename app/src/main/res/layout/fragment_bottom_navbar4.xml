@@ -3,7 +3,6 @@
 <!--
 Desarrollo de Aplicaciones para Dispositivos Moviles
 PRIMER PARCIAL
-Temas: BottomNavigationBars, NavigationDrawer, Tabs, Preferences y Splash
 
 fragment_bottom_navbar4.xml
 Ubicacion: res.layout
@@ -26,7 +25,8 @@ Ubicacion: res.layout
         android:layout_height="wrap_content"
         android:layout_marginTop="24dp"
         android:text="Centro de Investigaciones Educativas"
-        android:textSize="24sp"
+        android:textSize="20sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
@@ -37,6 +37,7 @@ Ubicacion: res.layout
         android:layout_height="wrap_content"
         android:text="VICENTE LOPEZ"
         android:textSize="24sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/txtNavBarCIIE4" />
